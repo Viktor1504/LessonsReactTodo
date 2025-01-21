@@ -35,6 +35,7 @@ export const App = () => {
             {id: crypto.randomUUID(), title: 'JS', isDone: true},
             {id: crypto.randomUUID(), title: 'ReactJS', isDone: false},
         ],
+
         [todolistId2]: [
             {id: crypto.randomUUID(), title: 'Rest API', isDone: true},
             {id: crypto.randomUUID(), title: 'GraphQL', isDone: false},
