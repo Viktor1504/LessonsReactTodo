@@ -1,5 +1,6 @@
 import './App.css'
 import {useState} from 'react'
+import {v1} from 'uuid'
 import {TodolistItem} from './TodolistItem'
 
 export type Task = {
@@ -14,9 +15,9 @@ export const App = () => {
     const [filter, setFilter] = useState<FilterValues>('all')
 
     const [tasks, setTasks] = useState<Task[]>([
-        {id: crypto.randomUUID(), title: 'HTML&CSS', isDone: true},
-        {id: crypto.randomUUID(), title: 'JS', isDone: true},
-        {id: crypto.randomUUID(), title: 'ReactJS', isDone: false},
+        {id: v1(), title: 'HTML&CSS', isDone: true},
+        {id: v1(), title: 'JS', isDone: true},
+        {id: v1(), title: 'ReactJS', isDone: false},
     ])
 
     const deleteTask = (taskId: string) => {
@@ -30,9 +31,9 @@ export const App = () => {
         setFilter(filter)
     }
 
-    const createTask = (title: string) => {
-        const task: Task = {id: crypto.randomUUID(), title, isDone: false}
-        setTasks([task, ...tasks])
+    const changeTaskStatus = (taskId: string, isDone: boolean) => {
+        const newTasks = tasks.map((task) => task.id === taskId ? {...task, isDone} : task)
+        setTasks(newTasks)
     }
 
     let filteredTasks = tasks
@@ -43,6 +44,12 @@ export const App = () => {
         filteredTasks = tasks.filter(task => task.isDone)
     }
 
+    const createTask = (title: string) => {
+        const newTask = {id: v1(), title, isDone: false}
+        const newTasks = [newTask, ...tasks]
+        setTasks(newTasks)
+    }
+
     return (
         <div className="app">
             <TodolistItem title="What to learn"
@@ -50,6 +57,8 @@ export const App = () => {
                           deleteTask={deleteTask}
                           changeFilter={changeFilter}
                           createTask={createTask}
+                          changeTaskStatus={changeTaskStatus}
+                          filter={filter}
             />
         </div>
     )
