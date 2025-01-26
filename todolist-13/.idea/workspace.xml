@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="40c8bea2-de53-46f6-ac2a-82085a948fa8" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2rzmxzMKzVOOsj84QqX9uecEBZx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Vitest.correct task should be created at correct array.executor": "Run",
+    "Vitest.correct task should be deleted.executor": "Run",
+    "Vitest.correct task should change its status.executor": "Run",
+    "Vitest.correct task should change its title.executor": "Run",
+    "Vitest.correct todolist should be deleted.executor": "Run",
+    "Vitest.ids should be equals.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/viktordenisevic/IT-INKUBATOR/LessonsReactTodo/todolist-13",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Users/viktordenisevic/IT-INKUBATOR/LessonsReactTodo/todolist-13/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/common/components/Header" />
+      <recent name="$PROJECT_DIR$/src/common/components/EditableSpan" />
+      <recent name="$PROJECT_DIR$/src/common/components/AddItemForm" />
+      <recent name="$PROJECT_DIR$/src/common/components" />
+      <recent name="$PROJECT_DIR$/src/features/todolists/ui/Todolists" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Vitest.ids should be equals">
+    <configuration name="correct task should be created at correct array" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct task should be created at correct array" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="correct task should be deleted" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct task should be deleted" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="correct task should change its status" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct task should change its status" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="correct task should change its title" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct task should change its title" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="ids should be equals" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="ids should be equals" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Vitest.ids should be equals" />
+        <item itemvalue="Vitest.correct task should change its title" />
+        <item itemvalue="Vitest.correct task should change its status" />
+        <item itemvalue="Vitest.correct task should be created at correct array" />
+        <item itemvalue="Vitest.correct task should be deleted" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-WS-243.23654.157" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40c8bea2-de53-46f6-ac2a-82085a948fa8" name="Changes" comment="" />
+      <created>1737570527496</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737570527496</updated>
+      <workItem from="1737570528598" duration="8421000" />
+      <workItem from="1737652681267" duration="5610000" />
+      <workItem from="1737659029961" duration="28000" />
+      <workItem from="1737659271474" duration="1350000" />
+      <workItem from="1737664568148" duration="1333000" />
+      <workItem from="1737797273853" duration="1553000" />
+      <workItem from="1737806688205" duration="8549000" />
+      <workItem from="1737816470824" duration="119000" />
+      <workItem from="1737816676202" duration="19000" />
+      <workItem from="1737816712773" duration="5523000" />
+      <workItem from="1737901714465" duration="9351000" />
+      <workItem from="1737912083579" duration="129000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
