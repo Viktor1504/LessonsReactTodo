@@ -13,7 +13,7 @@ let startState: TasksStateType
 beforeEach(() => {
   startState = {
     todolistId1: [
-      { id: "1", title: "CSS", isDone: false },
+      { id: "1", title: "CSS",  isDone: false },
       { id: "2", title: "JS", isDone: true },
       { id: "3", title: "React", isDone: false },
     ],

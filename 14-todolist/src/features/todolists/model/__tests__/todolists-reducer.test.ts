@@ -3,8 +3,7 @@ import {
   changeTodolistFilterAC,
   changeTodolistTitleAC,
   removeTodolistAC,
-  todolistsReducer,
-  TodolistType,
+  todolistsReducer
 } from "../todolists-reducer"
 import { v1 } from "uuid"
 
