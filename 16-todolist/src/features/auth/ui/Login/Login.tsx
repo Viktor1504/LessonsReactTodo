@@ -72,7 +72,7 @@ export const Login = () => {
                 here
               </a>
             </p>
-            <p>or use common test account credentials:</p>
+            <p>or use common test account cre dentials:</p>
             <p>
               <b>Email:</b> free@samuraijs.com
             </p>
@@ -101,10 +101,12 @@ export const Login = () => {
                   <Controller
                     name={"rememberMe"}
                     control={control}
-                    render={({ field: { value, ...rest } }) => <Checkbox {...rest} checked={value} />}
+                    render={({ field: { onChange, value } }) => (
+                      <Checkbox onChange={(e) => onChange(e.target.checked)} checked={value} />
+                    )}
                   />
                 }
-              />{" "}
+              />
               <Button type={"submit"} variant={"contained"} color={"primary"}>
                 Login
               </Button>
