@@ -9,7 +9,7 @@ import { useEffect } from "react"
 import { initializeAppTC } from "../features/auth/model/auth-reducer"
 import { selectIsInitialized } from "../features/auth/model/authSelectors"
 import { CircularProgress } from "@mui/material"
-import s from './App.module.css'
+import s from "./App.module.css"
 
 export const App = () => {
   const dispatch = useAppDispatch()
@@ -17,6 +17,7 @@ export const App = () => {
   const isInitialized = useAppSelector(selectIsInitialized)
 
   useEffect(() => {
+    console.log("App is initialized")
     dispatch(initializeAppTC())
   }, [dispatch])
 

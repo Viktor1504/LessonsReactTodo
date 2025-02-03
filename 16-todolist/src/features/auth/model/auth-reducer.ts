@@ -5,6 +5,7 @@ import { authApi } from "../api/authApi"
 import { ResultCode } from "common/enums"
 import { handleServerAppError } from "common/utils/handleServerAppError"
 import { handleServerNetworkError } from "common/utils/handleServerNetworkError"
+import { resetStateAC } from "common/actions/commonActions"
 
 type InitialStateType = typeof initialState
 
@@ -62,6 +63,7 @@ export const logoutTC = () => async (dispatch: Dispatch) => {
       dispatch(setAppStatusAC("succeeded"))
       dispatch(setIsLoggedInAC(false))
       localStorage.removeItem("sn-token")
+      dispatch(resetStateAC())
     } else {
       handleServerAppError(res.data, dispatch)
     }
@@ -75,7 +77,6 @@ export const initializeAppTC = () => async (dispatch: Dispatch) => {
     dispatch(setAppStatusAC("loading"))
     const res = await authApi.me()
     if (res.data.resultCode === ResultCode.Success) {
-      dispatch(setIsInitializedAC(true))
       dispatch(setAppStatusAC("succeeded"))
       dispatch(setIsLoggedInAC(true))
     } else {

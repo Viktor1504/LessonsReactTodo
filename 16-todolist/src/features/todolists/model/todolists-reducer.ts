@@ -5,6 +5,7 @@ import { Dispatch } from "redux"
 import { RequestStatus, setAppStatusAC } from "../../../app/app-reducer"
 import { todolistsApi } from "../api/todolistsApi"
 import { Todolist } from "../api/todolistsApi.types"
+import { ResetStateActionType } from "common/actions/commonActions"
 
 export type FilterValuesType = "all" | "active" | "completed"
 
@@ -46,6 +47,9 @@ export const todolistsReducer = (state: DomainTodolist[] = initialState, action:
       return state.map((tl) =>
         tl.id === action.payload.id ? { ...tl, entityStatus: action.payload.entityStatus } : tl,
       )
+    case "RESET_STATE": {
+      return []
+    }
 
     default:
       return state
@@ -160,3 +164,4 @@ type ActionsType =
   | ChangeTodolistFilterActionType
   | ChangeTodolistEntityStatusType
   | SetTodolistsActionType
+  | ResetStateActionType
