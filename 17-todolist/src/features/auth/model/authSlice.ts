@@ -2,12 +2,11 @@ import { ResultCode } from "common/enums"
 import { handleServerAppError } from "common/utils/handleServerAppError"
 import { handleServerNetworkError } from "common/utils/handleServerNetworkError"
 import { Dispatch } from "redux"
-import { clearTasksAC } from "../../todolists/model/tasks-reducer"
-import { clearTodolistsAC } from "../../todolists/model/todolists-reducer"
 import { authApi } from "../api/authAPI"
 import { LoginArgs } from "../api/authAPI.types"
 import { createSlice } from "@reduxjs/toolkit"
 import { setAppStatus } from "../../../app/appSlice"
+import { clearState } from "../../todolists/model/todolistsSlice"
 
 export const authSlice = createSlice({
   name: "auth",
@@ -23,12 +22,14 @@ export const authSlice = createSlice({
       state.isInitialized = action.payload.isInitialized
     }),
   }),
+  selectors: {
+    selectIsLoggedIn: (state) => state.isLoggedIn,
+    selectIsInitialized: (state) => state.isInitialized,
+  },
 })
-
-// Action creator также достаем с помощью slice
-export const { setIsLoggedIn, setIsInitialized } = authSlice.actions
-// Создаем reducer при помощи slice
 export const authReducer = authSlice.reducer
+export const { selectIsLoggedIn, selectIsInitialized } = authSlice.selectors
+export const { setIsLoggedIn, setIsInitialized } = authSlice.actions
 
 // thunks
 export const loginTC = (data: LoginArgs) => (dispatch: Dispatch) => {
@@ -57,8 +58,7 @@ export const logoutTC = () => (dispatch: Dispatch) => {
       if (res.data.resultCode === ResultCode.Success) {
         dispatch(setAppStatus({ status: "succeeded" }))
         dispatch(setIsLoggedIn({ isLoggedIn: false }))
-        dispatch(clearTasksAC())
-        dispatch(clearTodolistsAC())
+        dispatch(clearState())
         localStorage.removeItem("sn-token")
       } else {
         handleServerAppError(res.data, dispatch)
@@ -68,6 +68,7 @@ export const logoutTC = () => (dispatch: Dispatch) => {
       handleServerNetworkError(error, dispatch)
     })
 }
+
 export const initializeAppTC = () => (dispatch: Dispatch) => {
   dispatch(setAppStatus({ status: "loading" }))
   authApi
