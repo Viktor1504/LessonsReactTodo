@@ -4,7 +4,7 @@ import { TaskStatus } from "common/enums"
 import { useAppDispatch, useAppSelector } from "common/hooks"
 import { DomainTodolist } from "../../../../model/todolistsSlice"
 import { Task } from "./Task/Task"
-import { fetchTasksTC, selectTasks } from "../../../../model/tasksSlice"
+import { fetchTasks, selectTasks } from "../../../../model/tasksSlice"
 
 type Props = {
   todolist: DomainTodolist
@@ -16,7 +16,7 @@ export const Tasks = ({ todolist }: Props) => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchTasksTC(todolist.id))
+    dispatch(fetchTasks(todolist.id))
   }, [dispatch, todolist.id])
 
   const allTodolistTasks = tasks[todolist.id]
