@@ -2,8 +2,7 @@ import DeleteIcon from "@mui/icons-material/Delete"
 import IconButton from "@mui/material/IconButton"
 import { EditableSpan } from "common/components"
 import s from "./TodolistTitle.module.css"
-import { useRemoveTodolistMutation, useUpdateTodolistTitleMutation } from "../../../../api/todolistsApi"
-import { DomainTodolist } from "../../../../model/todolistsSlice"
+import { DomainTodolist, useRemoveTodolistMutation, useUpdateTodolistTitleMutation } from "../../../../api/todolistsApi"
 
 export const TodolistTitle = ({ todolist }: { todolist: DomainTodolist }) => {
   const [removeTodolist] = useRemoveTodolistMutation()

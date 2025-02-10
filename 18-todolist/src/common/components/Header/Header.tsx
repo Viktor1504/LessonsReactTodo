@@ -11,8 +11,6 @@ import { MenuButton } from "common/components"
 import { useLogoutMutation } from "../../../features/auth/api/authApi"
 import { handleServerNetworkError } from "common/utils"
 import { ResultCode } from "common/enums"
-import { clearTasks } from "../../../features/todolists/model/tasksSlice"
-import { clearTodolists } from "../../../features/todolists/model/todolistsSlice"
 
 export const Header = () => {
   const dispatch = useAppDispatch()
@@ -32,8 +30,6 @@ export const Header = () => {
       if (res.data?.resultCode === ResultCode.Success) {
         dispatch(setIsLoggedIn({ isLoggedIn: false }))
         localStorage.removeItem("sn-token")
-        dispatch(clearTasks())
-        dispatch(clearTodolists())
       }
     } catch (error: any) {
       handleServerNetworkError(error, dispatch)

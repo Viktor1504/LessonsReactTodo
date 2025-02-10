@@ -7,8 +7,8 @@ import DeleteIcon from "@mui/icons-material/Delete"
 import Checkbox from "@mui/material/Checkbox"
 import IconButton from "@mui/material/IconButton"
 import ListItem from "@mui/material/ListItem"
-import { DomainTodolist } from "../../../../../model/todolistsSlice"
 import { useRemoveTaskMutation, useUpdateTaskMutation } from "../../../../../api/tasksApi"
+import { DomainTodolist } from "../../../../../api/todolistsApi"
 
 export const Task = ({ task, todolist }: { task: DomainTask; todolist: DomainTodolist }) => {
   const [removeTask] = useRemoveTaskMutation()

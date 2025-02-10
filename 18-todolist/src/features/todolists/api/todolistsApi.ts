@@ -1,9 +1,16 @@
 import { Todolist } from "./todolistsApi.types"
 import { BaseResponse } from "common/types"
 import { baseApi } from "../../../app/baseApi"
-import { DomainTodolist } from "../model/todolistsSlice"
+import { RequestStatus } from "../../../app/appSlice"
 
-const todolistsApi = baseApi.injectEndpoints({
+export type FilterValuesType = "all" | "active" | "completed"
+
+export type DomainTodolist = Todolist & {
+  filter: FilterValuesType
+  entityStatus: RequestStatus
+}
+
+export const todolistsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getTodolists: build.query<DomainTodolist[], void>({
       query: () => "todo-lists",

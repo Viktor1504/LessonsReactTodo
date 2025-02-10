@@ -1,8 +1,8 @@
 import List from "@mui/material/List"
 import { TaskStatus } from "common/enums"
 import { Task } from "./Task/Task"
-import { DomainTodolist } from "../../../../model/todolistsSlice"
 import { useGetTasksQuery } from "../../../../api/tasksApi"
+import { DomainTodolist } from "../../../../api/todolistsApi"
 
 export const Tasks = ({ todolist }: { todolist: DomainTodolist }) => {
   const { data } = useGetTasksQuery(todolist.id)
