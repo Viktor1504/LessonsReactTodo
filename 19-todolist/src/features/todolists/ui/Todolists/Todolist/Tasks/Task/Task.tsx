@@ -8,15 +8,10 @@ import { ChangeEvent } from "react"
 import { useRemoveTaskMutation, useUpdateTaskMutation } from "../../../../../api/tasksApi"
 import { DomainTask } from "../../../../../api/tasksApi.types"
 import { createTaskModel } from "../../../../../lib/utils/createTaskModel"
-import { DomainTodolist } from "../../../../../model/todolistsSlice"
 import { getListItemSx } from "./Task.styles"
+import { DomainTodolist } from "../../../../../lib/types/types"
 
-type Props = {
-  task: DomainTask
-  todolist: DomainTodolist
-}
-
-export const Task = ({ task, todolist }: Props) => {
+export const Task = ({ task, todolist }: { task: DomainTask; todolist: DomainTodolist }) => {
   const [removeTask] = useRemoveTaskMutation()
   const [updateTask] = useUpdateTaskMutation()
 
