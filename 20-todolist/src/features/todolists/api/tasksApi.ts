@@ -47,6 +47,28 @@ export const tasksApi = baseApi.injectEndpoints({
           body: model,
         }
       },
+      async onQueryStarted({ todolistId, taskId, model }, { dispatch, queryFulfilled, getState }) {
+        const cachedArgsForQuery = tasksApi.util.selectCachedArgsForQuery(getState(), "getTasks")
+        let patchResults: any[] = []
+
+        cachedArgsForQuery.forEach(({ args }) => {
+          patchResults.push(
+            dispatch(
+              tasksApi.util.updateQueryData("getTasks", { todolistId, args: { page: args.page } }, (state) => {
+                const task = state.items.find((t) => t.id === taskId)
+                if (task) {
+                  Object.assign(task, model)
+                }
+              }),
+            ),
+          )
+        })
+        try {
+          await queryFulfilled
+        } catch {
+          patchResults.forEach((patchResult) => patchResult.undo())
+        }
+      },
       invalidatesTags: (_, __, { todolistId }) => [{ type: "Task", id: todolistId }],
     }),
   }),

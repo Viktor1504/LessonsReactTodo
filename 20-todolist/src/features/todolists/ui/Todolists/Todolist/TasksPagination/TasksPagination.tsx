@@ -1,8 +1,8 @@
-import Pagination from '@mui/material/Pagination'
-import Typography from '@mui/material/Typography'
-import { ChangeEvent } from 'react'
-import { PAGE_SIZE } from '../../../../api/tasksApi'
-import s from './TasksPagination.module.css'
+import Pagination from "@mui/material/Pagination"
+import Typography from "@mui/material/Typography"
+import { ChangeEvent } from "react"
+import { PAGE_SIZE } from "../../../../api/tasksApi"
+import s from "./TasksPagination.module.css"
 
 type Props = {
   totalCount: number
@@ -14,7 +14,7 @@ export const TasksPagination = ({ totalCount, page, setPage }: Props) => {
   const changePageHandler = (_: ChangeEvent<unknown>, page: number) => {
     setPage(page)
   }
-  
+
   return (
     <>
       <Pagination
