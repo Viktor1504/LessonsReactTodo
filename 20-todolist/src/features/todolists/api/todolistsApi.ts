@@ -1,4 +1,3 @@
-import { instance } from "common/instance"
 import { BaseResponse } from "common/types"
 import { baseApi } from "../../../app/baseApi"
 import { DomainTodolist } from "../lib/types/types"
@@ -9,7 +8,7 @@ export const todolistsApi = baseApi.injectEndpoints({
     getTodolists: build.query<DomainTodolist[], void>({
       query: () => "todo-lists",
       transformResponse(todolists: Todolist[]): DomainTodolist[] {
-        return todolists.map((tl) => ({ ...tl, filter: "all", entityStatus: "idle" }))
+        return todolists.map((tl) => ({ ...tl, filter: "all" }))
       },
       providesTags: ["Todolist"],
     }),
@@ -68,19 +67,3 @@ export const {
   useRemoveTodolistMutation,
   useUpdateTodolistTitleMutation,
 } = todolistsApi
-
-export const _todolistsApi = {
-  getTodolists() {
-    return instance.get<Todolist[]>("todo-lists")
-  },
-  updateTodolist(payload: { id: string; title: string }) {
-    const { title, id } = payload
-    return instance.put<BaseResponse>(`todo-lists/${id}`, { title })
-  },
-  createTodolist(title: string) {
-    return instance.post<BaseResponse<{ item: Todolist }>>("todo-lists", { title })
-  },
-  deleteTodolist(id: string) {
-    return instance.delete<BaseResponse>(`todo-lists/${id}`)
-  },
-}

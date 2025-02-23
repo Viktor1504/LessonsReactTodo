@@ -1,1 +1,1 @@
-export * from "./router"
+export {Routing} from "./router"

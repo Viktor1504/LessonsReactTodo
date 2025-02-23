@@ -5,11 +5,7 @@ import { todolistsApi } from "../../../../api/todolistsApi"
 import { DomainTodolist, FilterValues } from "../../../../lib/types/types"
 import { filterButtonsContainerSx } from "./FilterTasksButtons.styles"
 
-type Props = {
-  todolist: DomainTodolist
-}
-
-export const FilterTasksButtons = ({ todolist }: Props) => {
+export const FilterTasksButtons = ({ todolist }: { todolist: DomainTodolist }) => {
   const { filter, id } = todolist
 
   const dispatch = useAppDispatch()

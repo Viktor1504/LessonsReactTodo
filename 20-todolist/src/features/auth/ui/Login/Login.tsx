@@ -10,15 +10,13 @@ import { ResultCode } from "common/enums"
 import { useAppDispatch, useAppSelector } from "common/hooks"
 import { getTheme } from "common/theme"
 import { Controller, SubmitHandler, useForm } from "react-hook-form"
-import { Navigate } from "react-router"
-import { selectIsLoggedIn, selectThemeMode, setIsLoggedIn } from "../../../../app/appSlice"
+import { selectThemeMode, setIsLoggedIn } from "../../../../app/appSlice"
 import { useLoginMutation } from "../../api/authAPI"
 import { LoginArgs } from "../../api/authAPI.types"
 import s from "./Login.module.css"
 
 export const Login = () => {
   const themeMode = useAppSelector(selectThemeMode)
-  const isLoggedIn = useAppSelector(selectIsLoggedIn)
   const theme = getTheme(themeMode)
 
   const dispatch = useAppDispatch()
@@ -44,10 +42,6 @@ export const Login = () => {
       .finally(() => {
         reset()
       })
-  }
-
-  if (isLoggedIn) {
-    return <Navigate to={"/"} />
   }
 
   return (
