@@ -27,18 +27,35 @@ export const tasksApi = baseApi.injectEndpoints({
       },
       invalidatesTags: (_, __, { todolistId }) => [{ type: "Task", id: todolistId }],
     }),
-    removeTask: build.mutation<BaseResponse, { todolistId: string; taskId: string }>({
+    removeTask: build.mutation<BaseResponse, { todolistId: string; taskId: string; page: number }>({
       query: ({ todolistId, taskId }) => {
         return {
           method: "DELETE",
           url: `todo-lists/${todolistId}/tasks/${taskId}`,
         }
       },
+      async onQueryStarted({ todolistId, taskId, page }, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          tasksApi.util.updateQueryData("getTasks", { todolistId, args: { page } }, (draft) => {
+            draft.items = draft.items.filter((item) => item.id !== taskId)
+          }),
+        )
+        try {
+          await queryFulfilled
+        } catch {
+          patchResult.undo()
+        }
+      },
       invalidatesTags: (_, __, { todolistId }) => [{ type: "Task", id: todolistId }],
     }),
     updateTask: build.mutation<
       BaseResponse<{ item: DomainTask }>,
-      { todolistId: string; taskId: string; model: UpdateTaskModel }
+      {
+        todolistId: string
+        taskId: string
+        model: UpdateTaskModel
+        page: number
+      }
     >({
       query: ({ todolistId, taskId, model }) => {
         return {
@@ -47,26 +64,19 @@ export const tasksApi = baseApi.injectEndpoints({
           body: model,
         }
       },
-      async onQueryStarted({ todolistId, taskId, model }, { dispatch, queryFulfilled, getState }) {
-        const cachedArgsForQuery = tasksApi.util.selectCachedArgsForQuery(getState(), "getTasks")
-        let patchResults: any[] = []
-
-        cachedArgsForQuery.forEach(({ args }) => {
-          patchResults.push(
-            dispatch(
-              tasksApi.util.updateQueryData("getTasks", { todolistId, args: { page: args.page } }, (state) => {
-                const task = state.items.find((t) => t.id === taskId)
-                if (task) {
-                  Object.assign(task, model)
-                }
-              }),
-            ),
-          )
-        })
+      async onQueryStarted({ todolistId, taskId, model, page }, { dispatch, queryFulfilled }) {
+        const patchResult = dispatch(
+          tasksApi.util.updateQueryData("getTasks", { todolistId, args: { page } }, (draft) => {
+            const task = draft.items.find((t) => t.id === taskId)
+            if (task) {
+              Object.assign(task, model)
+            }
+          }),
+        )
         try {
           await queryFulfilled
         } catch {
-          patchResults.forEach((patchResult) => patchResult.undo())
+          patchResult.undo()
         }
       },
       invalidatesTags: (_, __, { todolistId }) => [{ type: "Task", id: todolistId }],

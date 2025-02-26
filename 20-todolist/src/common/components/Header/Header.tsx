@@ -15,13 +15,12 @@ import { useLogoutMutation } from "../../../features/auth/api/authAPI"
 export const Header = () => {
   const dispatch = useAppDispatch()
 
-  const themeMode = useAppSelector(selectThemeMode)
   const status = useAppSelector(selectAppStatus)
   const isLoggedIn = useAppSelector(selectIsLoggedIn)
+  const themeMode = useAppSelector(selectThemeMode)
+  const theme = getTheme(themeMode)
 
   const [logout] = useLogoutMutation()
-
-  const theme = getTheme(themeMode)
 
   const changeModeHandler = () => {
     dispatch(changeTheme({ themeMode: themeMode === "light" ? "dark" : "light" }))

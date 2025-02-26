@@ -52,7 +52,7 @@ export const Tasks = ({ todolist }: { todolist: DomainTodolist }) => {
         <>
           <List>
             {tasksForTodolist.map((task) => {
-              return <Task key={task.id} task={task} todolist={todolist} />
+              return <Task key={task.id} task={task} todolist={todolist} page={page} />
             })}
           </List>
           {data && data?.totalCount > 4 && (
